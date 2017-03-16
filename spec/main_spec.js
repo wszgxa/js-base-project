@@ -27,12 +27,13 @@ describe("test wordsAnalysis class", () => {
         
         // when
         wordAnalysis.recordWords()
+        let result = wordAnalysis.wordsResults
         
         // then
-        expect(wordAnalysis.wordsResults).to.have.deep.property('[0].word', 'in');
-        expect(wordAnalysis.wordsResults).to.have.deep.property('[0].num', 3);        
-        expect(wordAnalysis.wordsResults).to.have.deep.property('[1].word', 'year');        
-        expect(wordAnalysis.wordsResults).to.have.deep.property('[1].num', 2);        
+        expect(result).to.have.deep.property('[0].word', 'in');
+        expect(result).to.have.deep.property('[0].num', 3);        
+        expect(result).to.have.deep.property('[1].word', 'year');        
+        expect(result).to.have.deep.property('[1].num', 2);        
     })
     it("should print the right text words give", () => {
         // given
