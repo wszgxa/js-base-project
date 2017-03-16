@@ -23,7 +23,7 @@ describe("test wordsAnalysis class", () => {
     });
     it("should return true words count give", () => {
         // given
-        wordAnalysis.words = "in the last year lalal in hehe year in";
+        wordAnalysis.words = 'in the last year\nlalal in hehe year in';
         
         // when
         wordAnalysis.recordWords()
@@ -33,5 +33,16 @@ describe("test wordsAnalysis class", () => {
         expect(wordAnalysis.wordsResults).to.have.deep.property('[0].num', 3);        
         expect(wordAnalysis.wordsResults).to.have.deep.property('[1].word', 'year');        
         expect(wordAnalysis.wordsResults).to.have.deep.property('[1].num', 2);        
+    })
+    it("should print the right text words give", () => {
+        // given
+        wordAnalysis.words = "in the last year\nlalal in hehe year in";
+        wordAnalysis.wordsResults = []
+        
+        // when
+        let result = 'in 3\nyear 2\nthe 1\nlast 1\nlalal 1\nhehe 1\n'
+        wordAnalysis.recordWords()
+        // then
+        expect(wordAnalysis.printWords()).to.equal(result)
     })
 });
