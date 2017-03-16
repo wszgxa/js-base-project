@@ -43,6 +43,6 @@ describe("test wordsAnalysis class", () => {
         let result = 'in 3\nyear 2\nthe 1\nlast 1\nlalal 1\nhehe 1\n'
         wordAnalysis.recordWords()
         // then
-        expect(wordAnalysis.printWords()).to.equal(result)
+        expect(wordAnalysis.printWords().result).to.equal(result)
     })
 });
