@@ -6,26 +6,19 @@ var sinonChai = require("sinon-chai");
 var expect = chai.expect;
 chai.use(sinonChai);
 
-var main = require("../lib/main.js");
+var wordAnalysis = require("../lib/main.js");
 
 
-describe("测试描述", function(){
-    sinon.spy(console, 'log');
+describe("test wordsAnalysis class", function(){
 
-    it("测试用例1", function(){
+    it("should read words.txt give a file", function(){
+        // given
+        var expect_string = "In the last year, we've been updating pull requests with features that help teams give feedback and make sure only the highest quality code makes it into their projects. You can leave, manage, request, and dismiss reviews, as well as protect branches and limit merging rights. With restricted review dismissals, you can also ensure important feedback gets addressed."
 
-        var result = main();
-        var expect_string = '';
+        // when
+        var result = wordAnalysis.getWords().words;
         
-        expect(expect_string).to.equal(result);
-    });
-
-    it("测试用例2", function(){
-
-        main();
-        var result = _.flatten(console.log.args).join("\n");
-        var expect_string = '';
-
-        expect(expect_string).to.equal(result);
+        // then
+        expect(result).to.equal(expect_string);
     });
 });
